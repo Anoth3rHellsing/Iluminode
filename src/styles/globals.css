@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --an-bg-deep: #051525;
+  --an-bg-mid: #0a2540;
+  --an-bg-light: #1a4a7a;
+  --an-glow-cyan: #6dd5fa;
+  --an-glow-blue: rgba(100,180,255,.3);
+  --an-text: #ffffff;
+  --an-text-sec: rgba(255,255,255,.8);
+  --an-text-muted: rgba(255,255,255,.5);
+  --an-glass: rgba(255,255,255,.15);
+  --an-glass-border: rgba(255,255,255,.1);
+  --an-glass-hover: rgba(255,255,255,.2);
+}
+
+body {
+  background: radial-gradient(ellipse at 50% 120%, var(--an-bg-light) 0%, var(--an-bg-mid) 40%, var(--an-bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--an-text);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,.05); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.3); }
+
+/* Glow effect for active elements */
+.glow-active {
+  box-shadow: 0 0 12px rgba(100,180,255,.3);
+}
+
+/* Pulse animation for online status */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.status-pulse {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Panel transition */
+.panel-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Glass panel utility */
+.an-glass-panel {
+  background: linear-gradient(to bottom, rgba(255,255,255,.15) 0%, rgba(255,255,255,.05) 100%);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Tile hover effect */
+.an-tile-hover {
+  transition: all .2s cubic-bezier(.2,.8,.3,1);
+}
+.an-tile-hover:hover {
+  transform: scale(1.05);
+  border-color: rgba(255,255,255,.4);
+  box-shadow: 0 8px 32px rgba(0,100,200,.4), 0 0 20px rgba(100,180,255,.2);
+}
+
+/* Active tile */
+.an-tile-active {
+  border-color: var(--an-glow-cyan) !important;
+  box-shadow: 0 0 30px rgba(100,180,255,.5), 0 8px 32px rgba(0,0,0,.4);
+}
+
+/* Glossy overlay for icons/tiles */
+.an-glossy::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,.3) 0%, rgba(255,255,255,.05) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Button primary style */
+.an-btn-primary {
+  background: linear-gradient(to bottom, #6dd5fa 0%, #2980b9 100%);
+  border: 2px solid rgba(255,255,255,.3);
+  box-shadow: 0 4px 20px rgba(0,100,200,.4), inset 0 1px 0 rgba(255,255,255,.4);
+  transition: transform .15s, box-shadow .15s;
+}
+.an-btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 30px rgba(0,150,255,.6);
+}
+.an-btn-primary:active {
+  transform: scale(.98);
+}
+
+/* Input focus style */
+.an-input:focus {
+  border-color: var(--an-glow-cyan) !important;
+  box-shadow: 0 0 12px rgba(100,180,255,.2);
+}
+
+/* Wave background component */
+.an-wave-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Stars */
+.an-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: anTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes anTwinkle {
+  0%, 100% { opacity: .2; }
+  50% { opacity: .8; }
+}
+
+@keyframes anWaveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes anChannelPop {
+  from { opacity: 0; transform: scale(.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes anBar {
+  0% { height: 3px; }
+  100% { height: 14px; }
+}

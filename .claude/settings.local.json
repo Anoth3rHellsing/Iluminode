@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx drizzle-kit *)",
+      "Bash(powershell -NoProfile -Command 'New-Item -ItemType Directory -Path \"C:\\\\Users\\\\nicol\\\\Documents\\\\ClaudeCode\\\\Iluminode\\\\data\" -Force')"
+    ]
+  }
+}
